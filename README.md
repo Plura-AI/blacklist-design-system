@@ -59,13 +59,6 @@ This repo contains brand foundations, typography, color tokens, iconography, log
 | `ui_kits/<kit>/index.html` | Click-thru prototype for that surface. |
 | `ui_kits/<kit>/*.jsx` | Component recreations (cosmetic, not production). |
 
-### Sources used
-- Live site: <https://www.blacklistalliance.com/>
-- Brand assets: provided in `uploads/` (logos, favicon, General Sans family)
-- Structural reference only: [carbon-design-system/carbon](https://github.com/carbon-design-system/carbon) — used as a precedent for repo layout. **No Carbon visuals or components are used.**
-
----
-
 ## What Blacklist Alliance does
 
 Blacklist Alliance helps companies that place phone calls or send SMS at scale stay on the right side of the **TCPA** (Telephone Consumer Protection Act), the **DNC** (Do Not Call) registry, FCC rules, FTC enforcement, and state Attorneys General. It's a B2B compliance & litigation-defense product — the customer is a compliance officer, an in-house attorney, a contact-center ops lead, or a digital-marketing operator.
