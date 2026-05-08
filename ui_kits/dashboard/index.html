@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Blacklist Alliance — Dashboard UI Kit</title>
+<link rel="icon" href="../../assets/blacklist-favicon.svg" />
+<link rel="stylesheet" href="../../colors_and_type.css" />
+<link rel="stylesheet" href="app.css" />
+<script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body data-screen-label="Dashboard · Litigation Firewall">
+
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel" src="Components.jsx"></script>
+<script type="text/babel">
+  const { useState, useEffect } = React;
+
+  const ROWS = [
+    { id: "1", phone: "+1 (310) 555-0144", carrier: "Plivo",     type: "Wireless", status: "Litigator",   tone: "crit",    risk: 92, scrubbed: "2m ago",  ported: true,  state: "CA", lists: ["TCPA Pro Se","FED-Active"], firstSeen: "Mar 02, 2025" },
+    { id: "2", phone: "+1 (619) 555-0142", carrier: "Twilio",    type: "Wireless", status: "Compliant",   tone: "ok",      risk: 6,  scrubbed: "2m ago",  ported: false, state: "CA", lists: [], firstSeen: "Sep 11, 2024" },
+    { id: "3", phone: "+1 (415) 555-0190", carrier: "Vonage",    type: "Landline", status: "Review",      tone: "warn",    risk: 47, scrubbed: "14m ago", ported: false, state: "CA", lists: ["State-AG-Watch"], firstSeen: "Jan 28, 2025" },
+    { id: "4", phone: "+1 (212) 555-0103", carrier: "RingCentral", type: "VoIP",   status: "Compliant",   tone: "ok",      risk: 11, scrubbed: "21m ago", ported: true,  state: "NY", lists: [], firstSeen: "Aug 04, 2024" },
+    { id: "5", phone: "+1 (480) 555-0166", carrier: "Twilio",    type: "Wireless", status: "Compliant",   tone: "ok",      risk: 18, scrubbed: "33m ago", ported: false, state: "AZ", lists: [], firstSeen: "Jul 19, 2024" },
+    { id: "6", phone: "+1 (713) 555-0177", carrier: "Plivo",     type: "Wireless", status: "DNC",         tone: "warn",    risk: 58, scrubbed: "45m ago", ported: true,  state: "TX", lists: ["Federal-DNC"], firstSeen: "Feb 15, 2025" },
+    { id: "7", phone: "+1 (305) 555-0114", carrier: "Twilio",    type: "Wireless", status: "Litigator",   tone: "crit",    risk: 88, scrubbed: "58m ago", ported: false, state: "FL", lists: ["TCPA Pro Se"], firstSeen: "Apr 02, 2025" },
+  ];
+
+  function App() {
+    const [active, setActive] = useState("firewall");
+    const [selectedId, setSelectedId] = useState("1");
+    const [toast, setToast] = useState(false);
+    useEffect(() => { lucide.createIcons(); });
+
+    const selected = ROWS.find(r => r.id === selectedId);
+
+    return (
+      <div className="bx-app">
+        <Sidebar active={active} onNav={setActive} />
+        <div>
+          <TopBar title="Litigation Firewall" crumbs={["Workspace","Litigation Firewall","Live scrubs"]} />
+          <main className="bx-main">
+            <div className="bx-content">
+              <div className="bx-stats">
+                <StatTile label="Numbers scrubbed (24h)"  value="412,908" delta="▲ 8.4%" tone="ok"   sub="vs. yesterday" />
+                <StatTile label="Litigator hits"          value="37"      delta="▲ 12"   tone="crit" sub="auto-blocked" />
+                <StatTile label="DNC matches"             value="1,842"   delta="▼ 2.1%" tone="warn" sub="vs. yesterday" />
+                <StatTile label="Avg API latency"         value="38ms"    delta="◇ stable" tone="ok"  sub="p95 64ms" />
+              </div>
+              <FirewallTable rows={ROWS} selectedId={selectedId} onSelect={(id) => { setSelectedId(id); setTimeout(() => lucide.createIcons(), 0); }} />
+            </div>
+            <DetailPanel row={selected} />
+          </main>
+        </div>
+        <ToastDemo visible={toast} />
+      </div>
+    );
+  }
+
+  ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+</body>
+</html>

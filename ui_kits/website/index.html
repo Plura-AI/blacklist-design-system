@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Blacklist Alliance — Marketing Site UI Kit</title>
+<link rel="icon" href="../../assets/blacklist-favicon.svg" />
+<link rel="stylesheet" href="../../colors_and_type.css" />
+<link rel="stylesheet" href="site.css" />
+<style>
+  /* Photo placeholder fills (no real imagery shipped with kit) */
+  .photo-1 { background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%); }
+  .photo-2 { background: linear-gradient(135deg, #222 0%, #050505 100%); }
+  .photo-3 { background: linear-gradient(135deg, #161616 0%, #2a0000 100%); }
+  .photo-4 { background: linear-gradient(135deg, #0d0d0d 0%, #1f1f1f 100%); }
+  .photo-5 { background: linear-gradient(135deg, #2a0000 0%, #0a0000 100%); }
+</style>
+</head>
+<body data-screen-label="Blacklist · Home">
+
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel" src="Components.jsx"></script>
+<script type="text/babel">
+  const Page = () => (
+    <>
+      <Header />
+      <Hero />
+      <FeatureBlock
+        eyebrow="Contact centers"
+        title="Robust TCPA compliance for contact centers"
+        sub="Protect your operations with compliance training and real-time risk mitigation."
+        body="The Blacklist Alliance assists contact centers to navigate the complex requirements of the TCPA and its attendant regulations, and provides ongoing protection against the risks of TCPA litigation."
+        cta="Learn more"
+        photo=""
+      />
+      <FeatureBlock
+        reverse
+        eyebrow="VoIP carriers"
+        title="Comprehensive risk management for VoIP carriers"
+        sub="Compatible with leading API-based carriers like Twilio, Plivo, Vonage, and RingCentral."
+        body="Our dedicated carrier product works with any API-based carrier, helping ensure compliant operations while mitigating the risk of FCC, FTC, and state Attorney General enforcement actions."
+        cta="Learn more"
+        photo=""
+      />
+      <FeatureBlock
+        eyebrow="Insurance companies"
+        title="Essential TCPA compliance for insurance"
+        sub="Mitigate litigation risks and avoid costly settlements with our advanced solutions."
+        body="Insurance brokers, agents, and the carriers they represent all rely on the phone to interact with customers, and therefore face the highest risk of TCPA litigation."
+        cta="Learn more"
+        photo=""
+      />
+      <ServicesGrid />
+      <ClosingCTA />
+      <Footer />
+    </>
+  );
+  ReactDOM.createRoot(document.getElementById("root")).render(<Page />);
+
+  // Apply photo stubs to feature media
+  setTimeout(() => {
+    document.querySelectorAll(".ba-feature__media").forEach((el, i) => {
+      el.classList.add("photo-" + ((i % 5) + 1));
+    });
+  }, 50);
+</script>
+</body>
+</html>

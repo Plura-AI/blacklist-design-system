@@ -1,0 +1,28 @@
+<!doctype html>
+<html><head><meta charset="utf-8" />
+<link rel="stylesheet" href="../colors_and_type.css" />
+<style>
+  html, body { background: #fff; margin: 0; padding: 0; font-family: var(--font-sans); }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  thead th { text-align:left; font-size: 10px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--fg-3); padding: 14px 18px 10px; border-bottom: 1px solid var(--border-1); background: #F7F7F7; }
+  tbody td { padding: 14px 18px; border-bottom: 1px solid var(--border-1); }
+  tbody tr:hover { background: #FAFAFA; }
+  .num { font-family: var(--font-mono); }
+  .pill { display:inline-flex; align-items:center; gap:6px; font-size: 10px; font-weight: 600; letter-spacing:.08em; text-transform: uppercase; padding: 3px 8px; border-radius: 0; }
+  .ok { background: #E5F4EC; color: #117A3D; }
+  .crit { background: #FBE5E5; color: #A50100; }
+  .warn { background: #FFF3DD; color: #B36B00; }
+  .dot { width:6px; height:6px; border-radius: 0; background: currentColor; display:inline-block; }
+</style>
+</head>
+<body>
+  <table>
+    <thead><tr><th>Phone</th><th>Carrier</th><th>Status</th><th>Last scrub</th></tr></thead>
+    <tbody>
+      <tr><td class="num">+1 (619) 555-0142</td><td>Twilio</td><td><span class="pill ok"><span class="dot"></span>Compliant</span></td><td>2m ago</td></tr>
+      <tr><td class="num">+1 (310) 555-0144</td><td>Plivo</td><td><span class="pill crit"><span class="dot"></span>Litigator</span></td><td>2m ago</td></tr>
+      <tr><td class="num">+1 (415) 555-0190</td><td>Vonage</td><td><span class="pill warn"><span class="dot"></span>Review</span></td><td>14m ago</td></tr>
+      <tr><td class="num">+1 (212) 555-0103</td><td>RingCentral</td><td><span class="pill ok"><span class="dot"></span>Compliant</span></td><td>21m ago</td></tr>
+    </tbody>
+  </table>
+</body></html>

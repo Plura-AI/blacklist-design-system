@@ -1,0 +1,28 @@
+<!doctype html>
+<html><head><meta charset="utf-8" />
+<link rel="stylesheet" href="../colors_and_type.css" />
+<style>
+  html, body { background: var(--bg-surface); margin: 0; padding: 28px 32px; font-family: var(--font-sans); }
+  .row { display:flex; gap: 10px; flex-wrap:wrap; align-items:center; }
+  .pill { display:inline-flex; align-items:center; gap: 6px; font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; padding: 5px 10px; border-radius: 0; }
+  .dot { width: 6px; height: 6px; border-radius: 0; display:inline-block; }
+  .ok    { background: #E5F4EC; color: #117A3D; } .ok .dot { background: #117A3D; }
+  .warn  { background: #FFF3DD; color: #B36B00; } .warn .dot { background: #B36B00; }
+  .crit  { background: #FBE5E5; color: #A50100; } .crit .dot { background: #A50100; }
+  .info  { background: #E5EEF7; color: #0F4C8A; } .info .dot { background: #0F4C8A; }
+  .neutral { background: #EFEFEF; color: #393939; } .neutral .dot { background: #6F6F6F; }
+  .solid { background: #A50100; color: #fff; padding: 5px 12px; }
+  .outline { background:#fff; border: 1px solid var(--border-1); color: var(--fg-1); padding: 5px 12px; }
+</style>
+</head>
+<body>
+  <div class="row">
+    <span class="pill ok"><span class="dot"></span>Compliant</span>
+    <span class="pill warn"><span class="dot"></span>Review</span>
+    <span class="pill crit"><span class="dot"></span>Litigator</span>
+    <span class="pill info"><span class="dot"></span>Verified</span>
+    <span class="pill neutral"><span class="dot"></span>Pending</span>
+    <span class="pill solid">New</span>
+    <span class="pill outline">Beta</span>
+  </div>
+</body></html>

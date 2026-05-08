@@ -1,0 +1,22 @@
+<!doctype html>
+<html><head><meta charset="utf-8" />
+<link rel="stylesheet" href="../colors_and_type.css" />
+<style>
+  html, body { background: var(--bg-canvas); margin: 0; padding: 32px; font-family: var(--font-sans); }
+  .row { display:flex; gap: 24px; }
+  .specimen { flex:1; display:flex; flex-direction:column; align-items:center; gap: 12px; }
+  .box { width: 100%; height: 80px; background: #fff; border-radius: 0; }
+  .name { font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
+  .lbl { font-size: 10px; font-family: var(--font-mono); color: var(--fg-3); }
+  .focus { width: 80%; height: 56px; background: #fff; border: 1px solid var(--border-1); box-shadow: 0 0 0 3px rgba(165,1,0,0.28); }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="specimen"><div class="box" style="box-shadow:none; border:1px solid var(--border-1);"></div><span class="name">Flat</span><span class="lbl">--shadow-0</span></div>
+    <div class="specimen"><div class="box" style="box-shadow: 0 1px 2px rgba(0,0,0,0.06), 0 1px 1px rgba(0,0,0,0.04);"></div><span class="name">Raised</span><span class="lbl">--shadow-1</span></div>
+    <div class="specimen"><div class="box" style="box-shadow: 0 4px 12px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04);"></div><span class="name">Hover</span><span class="lbl">--shadow-2</span></div>
+    <div class="specimen"><div class="box" style="box-shadow: 0 12px 32px rgba(0,0,0,0.12), 0 2px 4px rgba(0,0,0,0.06);"></div><span class="name">Menu</span><span class="lbl">--shadow-3</span></div>
+    <div class="specimen"><div class="focus"></div><span class="name">Focus Ring</span><span class="lbl">--shadow-focus</span></div>
+  </div>
+</body></html>

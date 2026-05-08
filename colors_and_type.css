@@ -1,0 +1,427 @@
+/* ============================================================
+   Blacklist Alliance — Foundations
+   Colors, type, spacing, radius, shadow, motion.
+   Import once at the top of any page.
+   ============================================================ */
+
+/* -------- Fonts -------- */
+@font-face {
+  font-family: "General Sans";
+  src: url("./fonts/GeneralSans-Extralight.woff2") format("woff2");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "General Sans";
+  src: url("./fonts/GeneralSans-ExtralightItalic.woff2") format("woff2");
+  font-weight: 200;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "General Sans";
+  src: url("./fonts/GeneralSans-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "General Sans";
+  src: url("./fonts/GeneralSans-LightItalic.woff2") format("woff2");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "General Sans";
+  src: url("./fonts/GeneralSans-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "General Sans";
+  src: url("./fonts/GeneralSans-Italic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "General Sans";
+  src: url("./fonts/GeneralSans-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "General Sans";
+  src: url("./fonts/GeneralSans-MediumItalic.woff2") format("woff2");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "General Sans";
+  src: url("./fonts/GeneralSans-Semibold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "General Sans";
+  src: url("./fonts/GeneralSans-SemiboldItalic.woff2") format("woff2");
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "General Sans";
+  src: url("./fonts/GeneralSans-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "General Sans";
+  src: url("./fonts/GeneralSans-BoldItalic.woff2") format("woff2");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* ============================================================
+   Tokens
+   ============================================================ */
+:root {
+  /* ---------- Brand colors (the only three) ---------- */
+  --bl-red:        #A50100;   /* primary brand red */
+  --bl-red-hover:  #8A0100;   /* darker on hover */
+  --bl-red-press:  #6E0100;   /* even darker on press */
+  --bl-red-tint:   #FBE5E5;   /* very light wash, for backgrounds */
+  --bl-black:      #000000;
+  --bl-white:      #FFFFFF;
+
+  /* ---------- Neutrals (straight gray) ---------- */
+  --gray-00: #FFFFFF;
+  --gray-05: #F7F7F7;
+  --gray-10: #EFEFEF;
+  --gray-20: #E0E0E0;
+  --gray-30: #C9C9C9;
+  --gray-40: #A8A8A8;
+  --gray-50: #8C8C8C;
+  --gray-60: #6F6F6F;
+  --gray-70: #525252;
+  --gray-80: #393939;
+  --gray-90: #1F1F1F;
+  --gray-100:#000000;
+
+  /* ---------- Semantic (standard, restrained) ---------- */
+  --success:       #117A3D;
+  --success-bg:    #E5F4EC;
+  --warning:       #B36B00;
+  --warning-bg:    #FFF3DD;
+  --danger:        #A50100;   /* same as brand red — fits the safety theme */
+  --danger-bg:    #FBE5E5;
+  --info:          #0F4C8A;
+  --info-bg:       #E5EEF7;
+
+  /* ---------- Surfaces / foregrounds (light) ---------- */
+  --bg-canvas:    var(--gray-05);   /* page bg */
+  --bg-surface:   var(--gray-00);   /* cards / panels */
+  --bg-sunken:    var(--gray-10);   /* inputs, code blocks */
+  --bg-inverse:   var(--bl-black);  /* dark sections */
+
+  --fg-1: var(--gray-100);   /* primary text */
+  --fg-2: var(--gray-70);    /* secondary */
+  --fg-3: var(--gray-50);    /* tertiary / meta */
+  --fg-4: var(--gray-40);    /* placeholder, disabled */
+  --fg-on-red:   var(--bl-white);
+  --fg-on-black: var(--bl-white);
+
+  --border-1: var(--gray-20); /* default 1px hairline */
+  --border-2: var(--gray-30); /* hover / stronger */
+  --border-3: var(--gray-80); /* on dark */
+
+  /* ---------- Type ---------- */
+  --font-sans: "General Sans", ui-sans-serif, system-ui, -apple-system,
+               "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas,
+               "Liberation Mono", monospace;
+
+  /* Weights — General Sans available: 200/300/400/500/600/700 */
+  --fw-extralight: 200;
+  --fw-light:      300;
+  --fw-regular:    400;
+  --fw-medium:     500;
+  --fw-semibold:   600;
+  --fw-bold:       700;
+
+  /* Type scale (fluid-friendly; modular) */
+  --fs-12: 0.75rem;     /* 12 — micro labels, captions */
+  --fs-14: 0.875rem;    /* 14 — meta, body small */
+  --fs-16: 1rem;        /* 16 — body */
+  --fs-18: 1.125rem;    /* 18 — body large / lede */
+  --fs-20: 1.25rem;     /* 20 — h6 */
+  --fs-24: 1.5rem;      /* 24 — h5 */
+  --fs-28: 1.75rem;     /* 28 — h4 */
+  --fs-32: 2rem;        /* 32 — h3 */
+  --fs-40: 2.5rem;      /* 40 — h2 */
+  --fs-56: 3.5rem;      /* 56 — h1 */
+  --fs-72: 4.5rem;      /* 72 — display */
+  --fs-96: 6rem;        /* 96 — hero display */
+
+  --lh-tight: 0.95;
+  --lh-snug:  1.1;
+  --lh-base:  1.5;
+  --lh-loose: 1.7;
+
+  --ls-tight: -0.02em;   /* display & big headlines */
+  --ls-snug:  -0.01em;   /* h2/h3 */
+  --ls-base:   0em;
+  --ls-wide:   0.06em;   /* eyebrows, ALL CAPS labels */
+  --ls-wider:  0.12em;
+
+  /* ---------- Spacing (4px base) ---------- */
+  --sp-0:  0;
+  --sp-1:  4px;
+  --sp-2:  8px;
+  --sp-3:  12px;
+  --sp-4:  16px;
+  --sp-5:  20px;
+  --sp-6:  24px;
+  --sp-7:  32px;
+  --sp-8:  40px;
+  --sp-9:  48px;
+  --sp-10: 64px;
+  --sp-11: 80px;
+  --sp-12: 96px;
+  --sp-13: 128px;
+  --sp-14: 160px;
+
+  /* ---------- Radii — sharp everywhere. No exceptions. ---------- */
+  --r-0: 0px;
+  --r-1: 0px;
+  --r-2: 0px;
+  --r-3: 0px;
+  --r-4: 0px;
+  --r-pill: 0px;
+
+  /* ---------- Shadows / elevation ---------- */
+  --shadow-0: none;
+  --shadow-1: 0 1px 2px rgba(0,0,0,0.06), 0 1px 1px rgba(0,0,0,0.04);
+  --shadow-2: 0 4px 12px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-3: 0 12px 32px rgba(0,0,0,0.12), 0 2px 4px rgba(0,0,0,0.06);
+  --shadow-4: 0 24px 60px rgba(0,0,0,0.18);
+  --shadow-focus: 0 0 0 3px rgba(165, 1, 0, 0.28);
+  --shadow-inset-line: inset 0 -1px 0 var(--border-1);
+
+  /* ---------- Motion ---------- */
+  --ease-out:    cubic-bezier(0.2, 0.7, 0.2, 1);
+  --ease-in:     cubic-bezier(0.5, 0, 0.75, 0);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-1: 120ms;
+  --dur-2: 180ms;
+  --dur-3: 280ms;
+  --dur-4: 480ms;
+
+  /* ---------- Layout ---------- */
+  --container-sm:  640px;
+  --container-md:  960px;
+  --container-lg: 1200px;
+  --container-xl: 1440px;
+  --grid-gutter:   24px;
+  --grid-cols:     12;
+}
+
+/* ============================================================
+   Semantic element styles
+   Apply by tag, or via .ds- helper classes.
+   ============================================================ */
+
+html, body {
+  font-family: var(--font-sans);
+  font-size: var(--fs-16);
+  line-height: var(--lh-base);
+  color: var(--fg-1);
+  background: var(--bg-canvas);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, .ds-h1 {
+  font-size: clamp(var(--fs-40), 6vw, var(--fs-72));
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-tight);
+  font-weight: var(--fw-bold);
+  margin: 0;
+}
+h2, .ds-h2 {
+  font-size: clamp(var(--fs-32), 4vw, var(--fs-56));
+  line-height: var(--lh-snug);
+  letter-spacing: var(--ls-tight);
+  font-weight: var(--fw-bold);
+  margin: 0;
+}
+h3, .ds-h3 {
+  font-size: clamp(var(--fs-24), 2.4vw, var(--fs-32));
+  line-height: var(--lh-snug);
+  letter-spacing: var(--ls-snug);
+  font-weight: var(--fw-semibold);
+  margin: 0;
+}
+h4, .ds-h4 {
+  font-size: var(--fs-24);
+  line-height: 1.25;
+  font-weight: var(--fw-semibold);
+  margin: 0;
+}
+h5, .ds-h5 {
+  font-size: var(--fs-20);
+  line-height: 1.3;
+  font-weight: var(--fw-semibold);
+  margin: 0;
+}
+h6, .ds-h6 {
+  font-size: var(--fs-16);
+  line-height: 1.4;
+  font-weight: var(--fw-semibold);
+  margin: 0;
+}
+
+/* The signature lowercase display/tagline — used for the "risk less. connect more." pattern */
+.ds-tagline {
+  font-size: clamp(var(--fs-56), 9vw, var(--fs-96));
+  font-weight: var(--fw-bold);
+  line-height: 0.92;
+  letter-spacing: -0.03em;
+  text-transform: lowercase;
+  margin: 0;
+}
+
+/* The signature ALL-CAPS, tracked-out subhead — used under taglines / hero subhead */
+.ds-eyebrow {
+  font-size: var(--fs-14);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-wider);
+  text-transform: uppercase;
+  color: var(--fg-2);
+  margin: 0;
+}
+.ds-eyebrow--red { color: var(--bl-red); }
+
+.ds-subhead {
+  font-size: clamp(var(--fs-20), 2.4vw, var(--fs-28));
+  line-height: 1.3;
+  font-weight: var(--fw-medium);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-wide);
+  margin: 0;
+}
+
+p, .ds-body {
+  font-size: var(--fs-16);
+  line-height: var(--lh-base);
+  font-weight: var(--fw-regular);
+  color: var(--fg-1);
+  margin: 0;
+}
+.ds-body--lg {
+  font-size: var(--fs-18);
+  line-height: 1.55;
+}
+.ds-body--sm {
+  font-size: var(--fs-14);
+  line-height: 1.5;
+  color: var(--fg-2);
+}
+.ds-meta {
+  font-size: var(--fs-12);
+  line-height: 1.4;
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--fg-3);
+  font-weight: var(--fw-medium);
+}
+
+a, .ds-link {
+  color: var(--bl-red);
+  text-decoration: none;
+  font-weight: var(--fw-medium);
+  transition: color var(--dur-1) var(--ease-out);
+}
+a:hover, .ds-link:hover { color: var(--bl-red-hover); text-decoration: underline; text-underline-offset: 3px; }
+a:active, .ds-link:active { color: var(--bl-red-press); }
+
+code, kbd, samp, pre, .ds-code {
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+  background: var(--bg-sunken);
+  border: 1px solid var(--border-1);
+  border-radius: 0;
+  padding: 0.12em 0.4em;
+}
+pre.ds-code, .ds-pre {
+  display: block;
+  padding: var(--sp-4);
+  overflow-x: auto;
+  line-height: 1.5;
+}
+
+hr, .ds-rule {
+  border: 0;
+  border-top: 1px solid var(--border-1);
+  margin: var(--sp-7) 0;
+}
+
+::selection { background: var(--bl-red); color: var(--bl-white); }
+
+:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-focus);
+  border-radius: 0;
+}
+
+/* ============================================================
+   Utility helpers
+   ============================================================ */
+.ds-container       { width: 100%; max-width: var(--container-lg); margin-inline: auto; padding-inline: var(--sp-6); }
+.ds-container--xl   { max-width: var(--container-xl); }
+.ds-stack > * + *   { margin-top: var(--sp-4); }
+.ds-stack-lg > * + *{ margin-top: var(--sp-7); }
+.ds-row             { display: flex; gap: var(--sp-4); }
+.ds-row--center     { align-items: center; }
+.ds-row--between    { justify-content: space-between; align-items: center; }
+
+.ds-bg-black   { background: var(--bl-black); color: var(--fg-on-black); }
+.ds-bg-red     { background: var(--bl-red);   color: var(--fg-on-red); }
+.ds-bg-canvas  { background: var(--bg-canvas); }
+.ds-bg-surface { background: var(--bg-surface); }
+.ds-bg-sunken  { background: var(--bg-sunken); }
+
+.ds-fg-red     { color: var(--bl-red); }
+.ds-fg-1       { color: var(--fg-1); }
+.ds-fg-2       { color: var(--fg-2); }
+.ds-fg-3       { color: var(--fg-3); }
+
+/* "risk-bar" — a 4px brand-red rule used as a section accent */
+.ds-risk-bar {
+  display: block;
+  width: 56px;
+  height: 4px;
+  background: var(--bl-red);
+  border: 0;
+}
+.ds-risk-bar--full { width: 100%; }
+
+/* On dark backgrounds, flip text/borders */
+.ds-on-dark {
+  color: var(--fg-on-black);
+  --fg-1: var(--bl-white);
+  --fg-2: var(--gray-30);
+  --fg-3: var(--gray-40);
+  --border-1: var(--border-3);
+  --border-2: var(--gray-60);
+  --bg-surface: var(--gray-90);
+  --bg-sunken:  var(--gray-80);
+}

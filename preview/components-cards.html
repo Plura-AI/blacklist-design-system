@@ -1,0 +1,31 @@
+<!doctype html>
+<html><head><meta charset="utf-8" />
+<link rel="stylesheet" href="../colors_and_type.css" />
+<style>
+  html, body { background: var(--bg-canvas); margin: 0; padding: 28px 32px; font-family: var(--font-sans); }
+  .row { display:grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .card { background: #fff; border: 1px solid var(--border-1); padding: 22px; }
+  .card.flag { border-top: 4px solid var(--bl-red); padding-top: 18px; }
+  .eyebrow { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; font-weight: 600; color: var(--bl-red); margin-bottom: 10px; }
+  .title { font-size: 20px; font-weight: 600; letter-spacing:-0.01em; margin: 0 0 6px 0; }
+  .body { font-size: 14px; line-height: 1.5; color: var(--fg-2); margin: 0; }
+  .meta { display:flex; justify-content: space-between; align-items:center; margin-top: 16px; font-size: 11px; letter-spacing:.08em; text-transform: uppercase; color: var(--fg-3); }
+  .link { color: var(--bl-red); font-weight: 600; }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="card">
+      <div class="eyebrow">Litigation Firewall</div>
+      <h3 class="title">Real-time DNC scrub</h3>
+      <p class="body">Robust API to scrub DNC data in real time in accordance with your appetite for risk.</p>
+      <div class="meta"><span>Service</span><span class="link">Learn more →</span></div>
+    </div>
+    <div class="card flag">
+      <div class="eyebrow">Critical alert</div>
+      <h3 class="title">3 numbers flagged in last hour</h3>
+      <p class="body">Litigator-trap matches blocked before connection. Review the audit trail in Compliance.</p>
+      <div class="meta"><span>1m ago</span><span class="link">Open case →</span></div>
+    </div>
+  </div>
+</body></html>

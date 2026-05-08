@@ -1,0 +1,10 @@
+{
+  "name": "blacklist-designer",
+  "version": "1.0.0",
+  "description": "Apply The Blacklist Alliance design system to any asset. Reads the live design system at github.com/Plura-AI/blacklist-design-system and brands HTML, PDFs, decks, emails, spreadsheets, and more on demand. Triggers only when the user explicitly says 'Blacklist Designer'.",
+  "author": {
+    "name": "The Blacklist Alliance / Plura AI"
+  },
+  "homepage": "https://github.com/Plura-AI/blacklist-design-system",
+  "keywords": ["blacklist-alliance", "design-system", "branding", "tcpa", "compliance", "html", "pdf", "pptx", "marketing"]
+}

@@ -1,0 +1,24 @@
+<!doctype html>
+<html><head><meta charset="utf-8" />
+<link rel="stylesheet" href="../colors_and_type.css" />
+<style>
+  html, body { background: var(--bg-surface); margin: 0; padding: 28px 32px; font-family: var(--font-sans); }
+  .stack { display:flex; flex-direction:column; gap: 10px; }
+  .alert { display:grid; grid-template-columns: 32px 1fr auto; align-items:flex-start; gap: 12px; padding: 14px 16px; border-left: 3px solid; }
+  .alert .icon { width: 24px; height: 24px; border-radius: 0; display:flex; align-items:center; justify-content:center; font-weight:700; color:#fff; font-size: 13px; }
+  .alert .title { font-weight: 600; font-size: 14px; margin: 0 0 2px 0; }
+  .alert .body { font-size: 13px; color: var(--fg-2); margin: 0; line-height: 1.5; }
+  .close { font-size: 18px; color: var(--fg-3); cursor: pointer; }
+  .crit { background: #FBE5E5; border-color: #A50100; } .crit .icon { background: #A50100; }
+  .warn { background: #FFF3DD; border-color: #B36B00; } .warn .icon { background: #B36B00; }
+  .ok   { background: #E5F4EC; border-color: #117A3D; } .ok   .icon { background: #117A3D; }
+  .info { background: #E5EEF7; border-color: #0F4C8A; } .info .icon { background: #0F4C8A; }
+</style>
+</head>
+<body>
+  <div class="stack">
+    <div class="alert crit"><span class="icon">!</span><div><p class="title">Litigator number blocked</p><p class="body">+1 (310) 555-0144 matched the active litigator list. Call was prevented.</p></div><span class="close">×</span></div>
+    <div class="alert warn"><span class="icon">!</span><div><p class="title">Scrub coverage below 99%</p><p class="body">3 lists have not been re-scrubbed in 24h. Refresh recommended.</p></div><span class="close">×</span></div>
+    <div class="alert ok"><span class="icon">✓</span><div><p class="title">Audit complete</p><p class="body">Q1 compliance audit closed. Report exported to your Documents.</p></div><span class="close">×</span></div>
+  </div>
+</body></html>

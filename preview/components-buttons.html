@@ -1,0 +1,28 @@
+<!doctype html>
+<html><head><meta charset="utf-8" />
+<link rel="stylesheet" href="../colors_and_type.css" />
+<style>
+  html, body { background: var(--bg-surface); margin: 0; padding: 28px 32px; font-family: var(--font-sans); }
+  .row { display:flex; gap: 12px; align-items:center; flex-wrap:wrap; }
+  .btn { font-family: var(--font-sans); font-weight: 600; letter-spacing: .08em; text-transform: uppercase; font-size: 13px; padding: 14px 22px; border: 0; cursor: pointer; transition: background 120ms var(--ease-out), color 120ms; }
+  .primary { background: var(--bl-red); color: #fff; }
+  .primary:hover { background: var(--bl-red-hover); }
+  .secondary { background: #fff; color: #000; border: 1px solid #000; }
+  .secondary:hover { background: #000; color: #fff; }
+  .ghost { background: transparent; color: var(--bl-red); padding: 14px 4px; }
+  .ghost:hover { color: var(--bl-red-hover); }
+  .ghost::after { content: " →"; }
+  .dark { background: #000; color: #fff; padding: 14px 22px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; font-size: 13px; }
+  .dark:hover { background: var(--bl-red); }
+  .small { padding: 10px 16px; font-size: 12px; }
+</style>
+</head>
+<body>
+  <div class="row">
+    <button class="btn primary">Book a free demo</button>
+    <button class="btn secondary">Learn more</button>
+    <button class="btn dark">Sign in</button>
+    <button class="btn ghost">Read the brief</button>
+    <button class="btn primary small">Apply</button>
+  </div>
+</body></html>

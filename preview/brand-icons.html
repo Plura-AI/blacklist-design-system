@@ -1,0 +1,33 @@
+<!doctype html>
+<html><head><meta charset="utf-8" />
+<link rel="stylesheet" href="../colors_and_type.css" />
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
+  html, body { background: var(--bg-surface); margin: 0; padding: 24px 32px; font-family: var(--font-sans); }
+  .grid { display:grid; grid-template-columns: repeat(8, 1fr); gap: 18px; }
+  .cell { display:flex; flex-direction:column; align-items:center; gap: 6px; }
+  .cell i { color: var(--fg-1); }
+  .lbl { font-size: 10px; color: var(--fg-3); font-family: var(--font-mono); }
+</style>
+</head>
+<body>
+  <div class="grid">
+    <div class="cell"><i data-lucide="shield-check" width="24" height="24" stroke-width="2"></i><span class="lbl">shield-check</span></div>
+    <div class="cell"><i data-lucide="shield-alert" width="24" height="24" stroke-width="2"></i><span class="lbl">shield-alert</span></div>
+    <div class="cell"><i data-lucide="phone" width="24" height="24" stroke-width="2"></i><span class="lbl">phone</span></div>
+    <div class="cell"><i data-lucide="phone-off" width="24" height="24" stroke-width="2"></i><span class="lbl">phone-off</span></div>
+    <div class="cell"><i data-lucide="message-square" width="24" height="24" stroke-width="2"></i><span class="lbl">message-square</span></div>
+    <div class="cell"><i data-lucide="scale" width="24" height="24" stroke-width="2"></i><span class="lbl">scale</span></div>
+    <div class="cell"><i data-lucide="gavel" width="24" height="24" stroke-width="2"></i><span class="lbl">gavel</span></div>
+    <div class="cell"><i data-lucide="file-check-2" width="24" height="24" stroke-width="2"></i><span class="lbl">file-check-2</span></div>
+    <div class="cell"><i data-lucide="search" width="24" height="24" stroke-width="2"></i><span class="lbl">search</span></div>
+    <div class="cell"><i data-lucide="filter" width="24" height="24" stroke-width="2"></i><span class="lbl">filter</span></div>
+    <div class="cell"><i data-lucide="bell" width="24" height="24" stroke-width="2"></i><span class="lbl">bell</span></div>
+    <div class="cell"><i data-lucide="settings" width="24" height="24" stroke-width="2"></i><span class="lbl">settings</span></div>
+    <div class="cell"><i data-lucide="users" width="24" height="24" stroke-width="2"></i><span class="lbl">users</span></div>
+    <div class="cell"><i data-lucide="bar-chart-3" width="24" height="24" stroke-width="2"></i><span class="lbl">bar-chart-3</span></div>
+    <div class="cell"><i data-lucide="database" width="24" height="24" stroke-width="2"></i><span class="lbl">database</span></div>
+    <div class="cell"><i data-lucide="zap" width="24" height="24" stroke-width="2"></i><span class="lbl">zap</span></div>
+  </div>
+  <script>lucide.createIcons();</script>
+</body></html>
