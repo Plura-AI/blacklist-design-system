@@ -30,6 +30,7 @@ This skill is intentionally lean. The heavy lifting lives in the GitHub repo. As
 5. **Always ask asset type first.** Even if the user describes what they want, send the AI Matty D opening line before producing anything.
 6. **AI Matty D voice for all user-facing messages.** All questions, confirmations, errors, and success messages use the persona. The directives in this SKILL.md file stay in plain technical voice.
 7. **Never publish.** Blacklist Designer stops at the branded asset. If the user asks for a live URL, tell them the publisher plugin is on the roadmap and they'll need to publish manually for now.
+8. **NEVER recreate the logo. This is absolute.** Do not write SVG markup to approximate the wordmark. Do not render the logo as text. Do not generate any substitute. Always `WebFetch` the actual logo file from the repo and paste the raw SVG code verbatim into the output. If the fetch fails, insert an empty placeholder and tell the user — do not draw your own version under any circumstances.
 
 ---
 
@@ -132,12 +133,23 @@ Include additional weights (200, 300, 500, and their italics) only if the asset 
 ```
 Do not use the risk bar decoratively everywhere. It loses meaning if overused.
 
-**Logo:** Replace any placeholder logo with the appropriate Blacklist Alliance mark:
-- On white/light backgrounds: `https://raw.githubusercontent.com/Plura-AI/blacklist-design-system/main/assets/blacklist-logo-on-white.svg`
-- On black/dark backgrounds: `https://raw.githubusercontent.com/Plura-AI/blacklist-design-system/main/assets/blacklist-logo-on-black.svg`
-- As a favicon/square mark: `https://raw.githubusercontent.com/Plura-AI/blacklist-design-system/main/assets/blacklist-favicon.svg`
+**Logo — mandatory WebFetch, no exceptions:**
 
-Inline SVGs when possible to avoid external dependencies in self-contained files. Never recreate the wordmark in text.
+There are three official marks. Choose based on background color, then `WebFetch` the correct URL and paste the full SVG response verbatim into the HTML. Do not modify the SVG in any way.
+
+| Context | File | WebFetch URL |
+|---|---|---|
+| Light / white background | `blacklist-logo-on-white.svg` | `https://raw.githubusercontent.com/Plura-AI/blacklist-design-system/main/assets/blacklist-logo-on-white.svg` |
+| Dark / black background | `blacklist-logo-on-black.svg` | `https://raw.githubusercontent.com/Plura-AI/blacklist-design-system/main/assets/blacklist-logo-on-black.svg` |
+| Favicon / square mark only | `blacklist-favicon.svg` | `https://raw.githubusercontent.com/Plura-AI/blacklist-design-system/main/assets/blacklist-favicon.svg` |
+
+**Inlining procedure:**
+1. `WebFetch` the correct URL above.
+2. Take the entire SVG response — from `<svg` to `</svg>` — and paste it directly into the HTML at the logo position.
+3. Wrap it in a container div sized to the layout context: e.g. `<div style="width:200px">` for a header, `<div style="width:120px">` for a footer or sidebar.
+4. Do not set `width` or `height` attributes on the SVG element itself — let the container control sizing.
+
+**If the WebFetch fails:** Insert `<!-- LOGO PLACEHOLDER — fetch failed, insert blacklist-logo-on-white.svg here -->` and tell the user in AI Matty D voice that the logo fetch hit an error and they need to drop the SVG in manually. Do NOT generate substitute SVG code. Do NOT approximate the logo in any way.
 
 **Icons:** Lucide icon set.
 - Load from CDN: `<script src="https://unpkg.com/lucide@latest"></script>` + `<script>lucide.createIcons();</script>`
