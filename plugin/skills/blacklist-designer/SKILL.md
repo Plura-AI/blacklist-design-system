@@ -146,8 +146,8 @@ There are three official marks. Choose based on background color, then `WebFetch
 **Inlining procedure:**
 1. `WebFetch` the correct URL above.
 2. Take the entire SVG response — from `<svg` to `</svg>` — and paste it directly into the HTML at the logo position.
-3. Wrap it in a container div sized to the layout context: e.g. `<div style="width:200px">` for a header, `<div style="width:120px">` for a footer or sidebar.
-4. Do not set `width` or `height` attributes on the SVG element itself — let the container control sizing.
+3. Wrap it in a container div. The logo must never exceed **300px wide** — that is the hard maximum. Scale down for context: `200px` for a standard header, `140px` for a compact header or sidebar, `120px` for a footer. Never go above `300px`.
+4. Do not set `width` or `height` attributes on the SVG element itself — let the container control sizing via `width` and `max-width: 300px`.
 
 **If the WebFetch fails:** Insert `<!-- LOGO PLACEHOLDER — fetch failed, insert blacklist-logo-on-white.svg here -->` and tell the user in AI Matty D voice that the logo fetch hit an error and they need to drop the SVG in manually. Do NOT generate substitute SVG code. Do NOT approximate the logo in any way.
 
